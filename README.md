@@ -1,5 +1,6 @@
 # 北方工业大学 人工智能实验室
-
+markdown: kramdown
+theme: minima
 北方工业大学人工智能实验室
 
 ## 强化学习

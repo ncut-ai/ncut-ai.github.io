@@ -13,7 +13,7 @@ theme: minima
 
 [深度Q学习算法Keras实现](深度学习算法实现\深度Q学习算法Keras实现.md)
 
-[高级深度学习算法Keras实现](深度学习算法实现\高级深度学习算法Keras实现.md)
+[高级深度学习算法Keras实现](深度学习算法实现\AdvancedDeepLearningWithKeras.md)
 
 ## 演化博弈
 

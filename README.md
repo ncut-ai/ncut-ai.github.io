@@ -20,3 +20,6 @@ theme: minima
 ## Multi-Agent Systems
 
 ## Sumo交通仿真
+
+## 《深度强化学习与道路交通控制优化》
+[书中的全部源代码](marl_in_trafic_control_optimization.md)

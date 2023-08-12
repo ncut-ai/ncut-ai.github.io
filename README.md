@@ -19,7 +19,7 @@ theme: minima
 
 ## 多Agent强化学习(MARL)
 
-## [Sumo交通仿真](https://www.gitee.com/itsncut)
+## [Sumo交通仿真](https://gitee.com/itsncut/trafficsimulation)
 
 ## 《深度强化学习与道路交通控制优化》
 [书中的全部源代码](marlintraficcontroloptimization.md)

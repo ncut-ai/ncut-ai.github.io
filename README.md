@@ -17,9 +17,9 @@ theme: minima
 
 ## 演化博弈
 
-## Multi-Agent Systems
+## 多Agent强化学习(MARL)
 
-## Sumo交通仿真
+## [Sumo交通仿真](https://www.gitee.com/itsncut)
 
 ## 《深度强化学习与道路交通控制优化》
 [书中的全部源代码](marlintraficcontroloptimization.md)

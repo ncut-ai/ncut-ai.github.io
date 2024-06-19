@@ -25,3 +25,5 @@ theme: minima
 [书中的全部源代码](marlintraficcontroloptimization.md)
 
 ## [其他](english-learning)
+
+## [VSCODE+LATEX](vscode+LaTeX.md)

@@ -21,6 +21,8 @@ theme: minima
 
 ## [Sumo交通仿真](https://gitee.com/itsncut/trafficsimulation)
 
+## [RUST开发教程](RUSTIntro.md)
+
 ## 《深度强化学习与道路交通控制优化》
 [书中的全部源代码](marlintraficcontroloptimization.md)
 

@@ -23,7 +23,7 @@ theme: minima
 
 ## [RUST开发教程](RUSTIntro.md)
 
-## 《深度强化学习与道路交通控制优化》
+## [《深度强化学习与道路交通控制优化》](marlintraficcontroloptimization.md)
 [书中的全部源代码](marlintraficcontroloptimization.md)
 
 ## [其他](english-learning)

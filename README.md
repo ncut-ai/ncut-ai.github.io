@@ -25,7 +25,7 @@ theme: minima
 
 ## [《深度强化学习与道路交通控制优化》](marlintraficcontroloptimization.md)
 [书中的全部源代码](marlintraficcontroloptimization.md)
+![thepreface](./MARLinTrafficControlOptimization/preface.png)
 
-## [其他](english-learning)
 
 ## [VSCODE+LATEX](vscode+LaTeX.md)

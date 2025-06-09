@@ -9,8 +9,9 @@
 ## [Sumo交通仿真](https://gitee.com/itsncut/trafficsimulation)
 
 ## [《深度强化学习与道路交通控制优化》](marlintraficcontroloptimization.md)
-[书中的全部源代码](marlintraficcontroloptimization.md)
+
 ![thepreface](./MARLinTrafficControlOptimization/preface.png)
+### [书中的全部源代码](marlintraficcontroloptimization.md)
 
 ```latex
 @book{drlatsco2024,

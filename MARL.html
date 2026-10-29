@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="多智能体强化学习（MARL）的概念、数学模型、学习范式、常见方法、挑战与应用。">
+    <title>多智能体强化学习（MARL） | NCUT-AI</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --primary: #162d4a;
+            --accent: #4078c0;
+            --text: #222;
+            --muted: #596575;
+            --line: #dde2e8;
+            --surface: #f4f6f8;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: var(--text);
+            background: #fff;
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+            line-height: 1.75;
+        }
+        a { color: var(--accent); }
+        .site-header {
+            padding: 1rem max(1.25rem, calc((100% - 900px) / 2));
+            background: var(--primary);
+        }
+        .site-header a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        main {
+            width: min(100% - 2.5rem, 820px);
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+        }
+        h1, h2, h3 { color: var(--primary); line-height: 1.35; }
+        h1 { margin: 0 0 2rem; font-size: 2.25rem; }
+        h2 {
+            margin: 2.75rem 0 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--accent);
+            font-size: 1.55rem;
+        }
+        h3 { margin: 1.6rem 0 0.5rem; font-size: 1.2rem; }
+        p { margin: 0.75rem 0; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin: 0.45rem 0; }
+        .equation {
+            overflow-x: auto;
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+            background: var(--surface);
+        }
+        footer {
+            padding: 1.25rem;
+            color: var(--muted);
+            text-align: center;
+            border-top: 1px solid var(--line);
+        }
+        @media (max-width: 600px) {
+            main { padding-top: 2rem; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.35rem; }
+        }
+    </style>
+    <script>
+        MathJax = {
+            tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html">北方工业大学｜人工智能实验室 NCUT-AI</a>
+    </header>
+    <main>
+        <article>
+            <h1>多智能体强化学习（MARL）</h1>
+
+            <section>
+                <h2>概念</h2>
+                <p>多智能体强化学习（Multi-Agent Reinforcement Learning，简称 MARL）研究多个智能体如何在同一环境中通过反复交互学习决策策略。智能体根据可获得的观测采取行动，并从环境中获得奖励或惩罚，以优化长期表现。</p>
+                <p>单智能体强化学习通常假设环境动力学相对固定；而在 MARL 中，其他智能体也会行动和学习，因此对某个智能体而言，环境可能随时间变化，形成<strong>非平稳性</strong>。智能体之间可以合作、竞争，也可以同时存在共同利益和冲突。</p>
+            </section>
+
+            <section>
+                <h2>数学模型</h2>
+                <p>MARL 常用多智能体马尔可夫决策过程，也称 Markov Game，描述：</p>
+                <div class="equation">
+                    \[\mathcal{G}=(\mathcal{S},\mathcal{A}_1,\ldots,\mathcal{A}_N,P,r_1,\ldots,r_N,\gamma)\]
+                </div>
+                <ul>
+                    <li>\(N\)：智能体数量；\(\mathcal{S}\)：环境状态空间。</li>
+                    <li>\(\mathcal{A}_i\)：智能体 \(i\) 的行动空间；联合行动为 \(\mathbf{a}=(a_1,\ldots,a_N)\)。</li>
+                    <li>\(P(s'\mid s,\mathbf{a})\)：环境转移概率。</li>
+                    <li>\(r_i(s,\mathbf{a})\)：智能体 \(i\) 的奖励函数。奖励可以共享，也可以因智能体而异。</li>
+                    <li>\(\gamma\)：折扣因子，用于衡量未来奖励相对于即时奖励的重要性。</li>
+                </ul>
+                <p>智能体通常根据策略 \(\pi_i(a_i\mid o_i)\) 选择行动，其中 \(o_i\) 是其观测。若智能体无法看到完整环境状态，问题还具有部分可观测性。</p>
+            </section>
+
+            <section>
+                <h2>按智能体关系划分</h2>
+                <h3>合作型</h3>
+                <p>智能体追求共同目标，通常共享团队奖励。例如，多台机器人协作搬运物体。主要难点是协调行动，以及判断每个智能体对团队结果的贡献（信用分配）。</p>
+                <h3>竞争型</h3>
+                <p>智能体的目标彼此冲突，例如棋类对弈。零和博弈是其中一种特殊情形：一方的收益对应另一方的损失。策略必须考虑对手的行为及其变化。</p>
+                <h3>混合型</h3>
+                <p>智能体既有共同利益，也有个体目标。例如道路参与者都希望交通安全，但可能竞争有限的道路空间。这类问题通常更贴近现实，也更难建模。</p>
+            </section>
+
+            <section>
+                <h2>主要学习范式</h2>
+                <h3>独立学习</h3>
+                <p>每个智能体把其他智能体视作环境的一部分，独立学习自己的策略。实现简单且易于扩展，但其他智能体策略变化会造成环境非平稳，使训练不稳定或难以收敛。</p>
+                <h3>集中式训练、分散式执行（CTDE）</h3>
+                <p>训练阶段可以利用全局状态、其他智能体的信息或集中式价值函数；执行阶段则由每个智能体仅根据本地观测独立行动。CTDE 能利用训练时较丰富的信息，同时满足部署时分散决策的要求。</p>
+                <h3>集中控制与通信</h3>
+                <p>集中控制器统一决定多个智能体的行动，或智能体通过通信交换信息。这些方式能够增强协调，但可能受到通信带宽、延迟、隐私或集中控制器可靠性的限制。</p>
+            </section>
+
+            <section>
+                <h2>常见方法</h2>
+                <ul>
+                    <li><strong>值分解方法</strong>：把团队价值与各智能体的局部价值联系起来。VDN 将团队价值表示为个体价值之和；QMIX 通过受约束的混合网络组合个体价值。</li>
+                    <li><strong>多智能体 Actor-Critic</strong>：策略网络负责选择行动，价值网络评估行动效果。MADDPG 是面向连续行动的一种 CTDE 方法；MAPPO 将 PPO 扩展至多智能体任务。</li>
+                    <li><strong>博弈论方法</strong>：利用纳什均衡、最优响应等概念分析策略之间的相互作用，常用于竞争或混合场景。</li>
+                    <li><strong>自博弈与策略种群</strong>：让智能体与自身的历史版本或多种对手交互，有助于提升对不同策略的适应能力。</li>
+                </ul>
+                <p>算法名称并不决定效果。选择方法时，应考虑合作或竞争关系、行动空间、观测条件、训练数据来源，以及执行阶段能否集中控制。</p>
+            </section>
+
+            <section>
+                <h2>核心挑战</h2>
+                <ol>
+                    <li><strong>非平稳性</strong>：其他智能体的学习改变了环境分布。</li>
+                    <li><strong>信用分配</strong>：团队奖励难以明确归因到具体智能体及其行动。</li>
+                    <li><strong>组合复杂度</strong>：联合行动空间会随着智能体数量增加而迅速扩大。</li>
+                    <li><strong>部分可观测与协调</strong>：局部观测可能不足，行动还需要彼此配合。</li>
+                    <li><strong>探索与安全</strong>：探索可能导致危险或代价高昂的联合行为，现实任务需要安全约束。</li>
+                    <li><strong>泛化与鲁棒性</strong>：训练中有效的策略可能无法适应新队友、对手或环境。</li>
+                    <li><strong>评估与复现</strong>：结果会受到随机种子、环境设置和基线选择影响，应使用多次独立运行并报告统计结果。</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>应用领域</h2>
+                <p>MARL 可用于多机器人协作、无人机编队、交通信号控制、自动驾驶交互、通信网络资源分配、智能电网、物流调度和策略游戏等。实际应用需要先明确智能体的边界、可用信息、通信条件、奖励目标和安全要求。</p>
+            </section>
+
+            <section>
+                <h2>典型工作流程</h2>
+                <ol>
+                    <li>定义环境、智能体及其观测和行动空间。</li>
+                    <li>明确团队目标与个体目标，设计与实际任务一致的奖励。</li>
+                    <li>选择训练范式，并区分训练阶段和部署阶段可使用的信息。</li>
+                    <li>通过环境交互收集数据，迭代更新策略或价值函数。</li>
+                    <li>在未参与训练的场景中测试，并与合适的基线比较任务表现、稳定性、泛化能力和安全性。</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>总结</h2>
+                <p>MARL 不只是多个单智能体算法的简单组合，其关键在于智能体之间的相互影响，以及如何实现有效的协作或竞争。建模时应优先厘清目标关系、信息结构和部署约束，再选择相应的学习方法与评估方案。</p>
+            </section>
+        </article>
+    </main>
+    <footer>北方工业大学人工智能实验室 NCUT-AI</footer>
+</body>
+</html>

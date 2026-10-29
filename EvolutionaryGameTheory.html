@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="演化博弈理论的基本概念、复制动态、鹰鸽博弈示例及应用。">
+    <title>演化博弈理论（EGT） | NCUT-AI</title>
+    <style>
+        :root { --primary: #162d4a; --accent: #4078c0; --text: #222; --muted: #596575; --line: #dde2e8; --surface: #f4f6f8; }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: var(--text); background: #fff; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; line-height: 1.75; }
+        a { color: var(--accent); }
+        .site-header { padding: 1rem max(1.25rem, calc((100% - 900px) / 2)); background: var(--primary); }
+        .site-header a { color: #fff; font-weight: 600; text-decoration: none; }
+        main { width: min(100% - 2.5rem, 820px); margin: 0 auto; padding: 3rem 0 4rem; }
+        h1, h2 { color: var(--primary); line-height: 1.35; }
+        h1 { margin: 0 0 2rem; font-size: 2.25rem; }
+        h2 { margin: 2.75rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--accent); font-size: 1.55rem; }
+        p { margin: 0.75rem 0; }
+        ul { padding-left: 1.5rem; }
+        li { margin: 0.45rem 0; }
+        .equation { overflow-x: auto; margin: 1rem 0; padding: 1rem; border-left: 3px solid var(--accent); background: var(--surface); }
+        footer { padding: 1.25rem; color: var(--muted); text-align: center; border-top: 1px solid var(--line); }
+        @media (max-width: 600px) { main { padding-top: 2rem; } h1 { font-size: 1.8rem; } h2 { font-size: 1.35rem; } }
+    </style>
+    <script>MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] } };</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header class="site-header"><a href="index.html">北方工业大学｜人工智能实验室 NCUT-AI</a></header>
+    <main>
+        <article>
+            <h1>演化博弈理论（Evolutionary Game Theory, EGT）</h1>
+            <p>演化博弈理论研究群体中的策略如何通过学习、模仿或自然选择随时间变化。它不要求个体完全理性地计算最优策略，而是关注不同策略带来的相对收益，以及这些策略在群体中的传播与稳定性。</p>
+            <section>
+                <h2>基本概念</h2>
+                <ul>
+                    <li><strong>策略</strong>：个体可采取的行为方式。</li>
+                    <li><strong>收益</strong>：策略与其他个体互动后获得的回报，也可理解为适应度。</li>
+                    <li><strong>群体比例</strong>：采用各策略的个体在群体中的占比，记为 \(x_i\)，且 \(\sum_i x_i=1\)。</li>
+                    <li><strong>演化稳定策略（ESS）</strong>：一种能够抵御少量不同策略入侵的策略；当群体主要采用该策略时，入侵者无法获得更高的收益。</li>
+                </ul>
+            </section>
+            <section>
+                <h2>复制动态</h2>
+                <p>复制动态刻画策略占比如何随相对收益变化：</p>
+                <div class="equation">\[\dot{x}_i=x_i\left(f_i(x)-\bar f(x)\right),\qquad \bar f(x)=\sum_j x_j f_j(x).\]</div>
+                <p>其中，\(f_i(x)\) 是策略 \(i\) 在当前群体状态下的收益，\(\bar f(x)\) 是群体平均收益。收益高于平均水平的策略通常会逐渐增多，低于平均水平的策略则可能减少。</p>
+            </section>
+            <section>
+                <h2>示例：鹰鸽博弈</h2>
+                <p>设资源价值为 \(V\)，冲突代价为 \(C\)，且 \(C&gt;V\)。采取“鹰”策略的个体强硬争夺资源，采取“鸽”策略的个体避免冲突。鹰遇到鸽时可能获得较高收益，但鹰之间冲突的代价很大。随着策略比例变化，群体可能形成鹰与鸽并存的稳定状态。</p>
+            </section>
+            <section>
+                <h2>应用与意义</h2>
+                <p>演化博弈理论可用于分析生物竞争与合作、社会规范形成、经济行为、公共资源治理和多智能体系统。它解释了群体行为如何在局部互动和有限理性条件下逐步形成，并提供了研究策略动态与稳定性的工具。经典博弈论主要分析给定规则下的均衡，演化博弈则进一步关注均衡如何形成，以及它能否抵御扰动。</p>
+            </section>
+        </article>
+    </main>
+    <footer>北方工业大学人工智能实验室 NCUT-AI</footer>
+</body>
+</html>

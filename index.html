@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh‑CN">
+<head>
+    <meta charset="UTF‑8">
+    <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+    <title>北方工业大学 人工智能实验室 | NCUT‑AI</title>
+    <style>
+        * {margin:0;padding:0;box‑sizing:border‑box;font‑family:"Segoe UI", "Microsoft YaHei", sans‑serif;}
+        :root {
+            --primary:#162D4A;
+            --accent:#4078c0;
+            --gray:#f4f6f8;
+            --text:#222;
+        }
+        body {color:var(--text);background:#fff;line‑height:1.65;}
+        nav {
+            background:var(--primary);
+            color:white;
+            padding:1rem 2rem;
+            position:sticky;top:0;
+        }
+        .nav‑container {max‑width:1200px;margin:0 auto;display:flex;justify‑content:space‑between;align‑items:center;flex‑wrap:wrap;}
+        .nav‑title {font‑size:1.3rem;font‑weight:bold;}
+        .nav‑menu a {color:#fff;text‑decoration:none;margin‑left:1.8rem;opacity:0.92;}
+        .nav‑menu a:hover {opacity:1; text‑decoration:underline;}
+
+        .hero {background:var(--gray);padding:4rem 2rem;}
+        .container {max‑width:1200px;margin:0 auto;padding:0 2rem;}
+        .hero h1 {font‑size:2.2rem;color:var(--primary);margin‑bottom:1rem;}
+        .hero p {font‑size:1.1rem;max‑width:850px;color:#333;}
+
+        section {padding:3.5rem 0;}
+        section h2 {font‑size:1.7rem;color:var(--primary);margin‑bottom:2rem;border‑bottom:2px solid var(--accent);padding‑bottom:0.4rem;display:inline‑block;}
+
+        .card‑grid {display:grid;grid‑template‑columns:repeat(auto‑fit, minmax(260px, 1fr));gap:1.6rem;}
+        .card {border:1px solid #dde2e8;border‑radius:8px;padding:1.6rem;transition:0.25s;}
+        .card:hover {box‑shadow:0 4px 14px rgba(22,45,74,0.1);transform:translateY(-3px);}
+        .card h3 {color:var(--primary);margin‑bottom:0.7rem;}
+        .card p {color:#444;font‑size:0.98rem;margin‑bottom:0.8rem;}
+        .card a {color:var(--accent);text‑decoration:none;font‑weight:500;}
+
+        .book‑block {background:var(--gray);padding:2rem;border‑radius:10px;margin‑top:1rem;}
+        .bibtex {background:#222;color:#eee;padding:1rem;border‑radius:6px;overflow‑x:auto;font‑family:monospace;font‑size:0.88rem;margin:1rem 0;}
+        .btn {display:inline‑block;background:var(--accent);color:white;padding:0.6rem 1.2rem;border‑radius:6px;text‑decoration:none;margin‑right:0.8rem;margin‑top:0.6rem;}
+        .btn:hover {opacity:0.9;}
+
+        footer {background:var(--primary);color:#ccc;padding:2rem;margin‑top:2rem;}
+        footer .container p {font‑size:0.9rem;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex‑mml‑chtml.js">    </script>
+</head>
+<body>
+<nav>
+    <div class="nav‑container">
+        <div class="nav‑title">北方工业大学｜人工智能实验室 NCUT‑AI</div>
+        <div class="nav‑menu">
+            <a href="#home">首页</a>
+            <a href="#research">研究方向</a>
+            <a href="#book">专著成果</a>
+            <a href="#opensource">开源代码</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </div>
+</nav>
+
+<div class="hero" id="home">
+    <div class="container">
+        <h1>北方工业大学 人工智能实验室</h1>
+        <p>本实验室围绕人工智能、多智能体系统与城市交通智能控制开展研究，重点包括演化博弈、多Agent强化学习、SUMO交通仿真、深度强化学习交通信号优化，配套出版专著并开源全套实验代码。</p>
+    </div>
+</div>
+
+<section id="research">
+    <div class="container">
+        <h2>研究方向 Research</h2>
+        <div class="card‑grid">
+            <div class="card">
+                <h3>演化博弈</h3>
+                <p>博弈动力学、群体演化、多主体决策建模，用于社会与交通系统分析。</p>
+                <a href="#">查看详情 →</a>
+            </div>
+            <div class="card">
+                <h3>多Agent强化学习 MARL</h3>
+                <p>多智能体协同、竞争学习算法，面向大规模复杂系统决策优化。</p>
+                <a href="#">查看详情 →</a>
+            </div>
+            <div class="card">
+                <h3>SUMO交通仿真</h3>
+                <p>基于SUMO的城市路网仿真、交通流建模，结合强化学习做信号控制实验。</p>
+                <a href="#">查看详情 →</a>
+            </div>
+            <div class="card">
+                <h3>道路交通控制优化</h3>
+                <p>深度强化学习驱动交通信号控制，真实路网仿真验证算法性能。</p>
+                <a href="#">查看详情 →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="book">
+    <div class="container">
+        <h2>专著成果 Publication‑Book</h2>
+        <div class="book‑block">
+            <h3>《深度强化学习与交通信号控制优化》</h3>
+            <p><strong>作者：</strong>张尊栋，王会，吴文祥，刘小明</p>
+            <p><strong>出版社：</strong>浙江大学出版社，2024，ISBN：978‑7‑308‑25175‑4</p>
+            <p>本书系统介绍深度强化学习在道路交通信号控制中的理论、算法与SUMO仿真实践。配套完整开源实验源代码。</p>
+            <div class="bibtex">
+@book{drlatsco2024,
+ title = "深度强化学习与交通信号控制优化",
+ author = "张尊栋 and 王会 and 吴文祥 and 刘小明",
+ year = 2024,
+ publisher = "浙江大学出版社",
+ address = "杭州",
+ isbn = "978‑7‑308‑25175‑4"
+}
+            </div>
+            <a class="btn" href="#">获取书中全部源代码</a>
+        </div>
+    </div>
+</section>
+
+<section id="opensource">
+    <div class="container">
+        <h2>开源代码与工具 Open Source</h2>
+        <div class="card‑grid">
+            <div class="card">
+                <h3>本书配套源码</h3>
+                <p>《深度强化学习与交通信号控制优化》全书实验代码。</p>
+                <a href="#">GitHub仓库跳转</a>
+            </div>
+            <div class="card">
+                <h3>SUMO交通仿真工程</h3>
+                <p>SUMO+强化学习交通仿真案例集合。</p>
+                <a href="#">GitHub仓库跳转</a>
+            </div>
+            <div class="card">
+                <h3>VSCODE + LaTeX</h3>
+                <p>科研写作环境配置笔记，LaTeX排版教程。</p>
+                <a href="#">阅读笔记</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <h2>联系我们 Contact</h2>
+        <p>北方工业大学 · 人工智能实验室</p>
+        <p>地址：北京市石景山区阜石路153号北方工业大学</p>
+        <p>GitHub主页：<a href="https://ncut‑ai.github.io/">https://ncut‑ai.github.io/</a></p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2025‑2026 北方工业大学人工智能实验室 NCUT‑AI | Powered by GitHub Pages</p>
+    </div>
+</footer>
+</body>
+</html>
